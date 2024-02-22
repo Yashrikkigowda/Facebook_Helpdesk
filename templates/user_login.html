@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0%;
+        }
+        .cont1{
+            height: 100vh;
+            width: 100%;
+            background-color: rgb(10, 10, 79);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+        }
+        .reg1{
+            height: 400px;
+            width: 450px;
+            background-color: white;
+            border-radius: 4%;
+        }
+        h2{
+            text-align: center;
+            padding: 7%;
+
+        }
+        label{
+            margin-left: 75px;
+        }
+        input{
+            margin-left: 75px;
+            padding-bottom: 1%;
+            opacity: 0.8;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="cont1">
+        <div class="reg1">
+            <form action="{% url 'user_login' %}" method="POST">
+                <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Login to your Account</h2>
+                {% csrf_token %}
+                <label for="username" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Username</label><br>
+                <input type="text" name="username" id="usss" placeholder="" style="font-family: 'Times New Roman', Times, serif; width: 300px;">
+                <br>
+                <label for="password" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Password</label><br>
+                <input type="password" name="password" id="passs" placeholder="" style="font-family: 'Times New Roman', Times, serif; width: 300px;">
+                <br>
+                <input type="checkbox" name="" id="remmm"><label style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-left: 5px;">Remember Me</label><br><br>
+
+                <input type="submit" onclick="loginu()" class="btn btn-primary" value="Login" style="width: 300px;font-family: 'Times New Roman', Times, serif;"><br>
+                <label style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-top: 20px;padding-left: 50px;">New to MyApp? <a href="{% url 'user_register' %}">Sign Up</a></label>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Checking if user credentials are stored in localStorage
+        window.onload = function () {
+            const savedUsername = localStorage.getItem('usss');
+            const savedPassword = localStorage.getItem('passs');
+            const rememberMeCheckbox = document.getElementById('remmm');
+
+            // To Restrict Auto Login for Next-Time
+            if (savedUsername && savedPassword) {
+                document.getElementById('usss').value = savedUsername;
+                document.getElementById('passs').value = savedPassword;
+
+                // Checking it again, if the "Remember Me" checkbox was checked previously
+                if (rememberMeCheckbox) {
+                    rememberMeCheckbox.checked = true;
+                }
+            }
+        };
+
+        // Function for login
+        function loginu() {
+            const user_name = document.getElementById('usss').value;
+            const password_pass = document.getElementById('passs').value;
+            const rememberMeCheckbox = document.getElementById('remmm');
+
+            // Save user credentials to localStorage if "Remember Me" is checked
+            if (rememberMeCheckbox.checked) {
+                localStorage.setItem('usss', user_name);
+                localStorage.setItem('passs', password_pass);
+            } else {
+                // If "Remember Me" is not checked. remove the stored credentials
+                localStorage.removeItem('user_name');
+                localStorage.removeItem('password_pass');
+            }
+        }
+    </script>
+</body>
+</html>

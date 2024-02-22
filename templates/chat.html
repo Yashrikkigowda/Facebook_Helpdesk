@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        *{
+            margin: 0%;
+        }
+        .cont0{
+            height: 100vh;
+            width: 100%;
+            background-color: rgb(236, 233, 233);
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .boxx1{
+            height: 100vh;
+            width: 7%;
+            background-color: darkblue;
+            left: 0%;
+            display: flex;
+            flex-direction: column;
+        }
+        .boxx2{
+            height: 100vh;
+            width: 19%;
+            background-color: white;
+        }
+        .boxx3{
+            height: 73px;
+            width: 54%;
+            background-color: darkblue;
+        }
+        .boxx4{
+            height: 100vh;
+            width: 20%;
+            position: absolute;
+            right: 0%;
+            background-color: rgb(224, 226, 239);
+        }
+    </style>
+</head>
+<body>
+    <div class="cont0">
+        <div class="boxx1">
+            <img src="{% static 'images/logo.png' %}" alt="" style="height: 40px;width: 50px;margin-top: 25px;margin-left: 24px;">
+            <div class="boox1" style="height: 80px;width: 100%;background-color: white;margin-top: 33px;">
+                <i class='bx bxs-briefcase' style="font-size: 37px;color: darkblue;margin-top: 20px;margin-left: 30px;"></i>
+            </div>
+            <i class='bx bxs-user' style="font-size: 37px;color: white;margin-top: 30px;margin-left: 30px;"></i>
+            <i class='bx bx-trending-up' style="font-size: 37px;color: white;margin-top: 37px;margin-left: 30px;"></i>
+            <i class='bx bx-signal-4' style="font-size: 37px;color: white;margin-top: -27px;margin-left: 33px;"></i>
+        </div>
+
+
+        <div class="boxx2">
+            <i class='bx bx-align-middle' style="font-size: 20px;color: black;margin-top: 30px;margin-left: 13px;margin-bottom: 10px;"></i>
+            <h1 style="margin-top: -40px;margin-left: 45px;">Coversations</h1>
+
+            <div class="boox2" style="height: 140px;width: 100%;background-color: rgb(228, 227, 227);margin-top: 15px;">
+                <input type="checkbox" style="width: 40px;height: 20px;margin-top: 30px;"><h3 style="margin-top: -33px;margin-left: 43px;">Richpanel AI <h4 style="margin-left: 43px;">Facebook Chatbot</h4></h3>
+                <h4 style="margin-top: 10px;margin-left: 20px;">Lana<h5 style="margin-left: 20px;">Hey There ! how can i help you.....</h5></h4>
+            </div>
+            <input type="checkbox" style="width: 40px;height: 20px;margin-top: 30px;"><h3 style="margin-top: -33px;margin-left: 43px;">Yash Rikki<h4 style="margin-left: 43px;">Facebook DM</h4></h3>
+            <h4 style="margin-top: 10px;margin-left: 20px;">Full Stack Developer<h5 style="margin-left: 20px;">Hey lana will you help me to get a job.......</h5></h4>
+        </div>
+
+
+        <div class="boxx3">
+            <h1 style="margin-top: 20px;margin-left: 40px;color: white;">Lana</h1>
+        </div>
+        
+
+        <input type="text" name="" id="" placeholder="    Message to Lana" style="position: absolute;margin-left: 28%;margin-top: 39%;height: 30px;width: 750px;border: 2px rgb(50, 50, 251) solid;">
+
+
+        <div class="boxx4">
+            <div class="boox4" style="height: 300px;width: 260px;background-color: white;margin: 25px;">
+                <i class='bx bx-user-circle' style="font-size: 100px;margin-top: 15%;margin-left: 31%;color: rgb(18, 104, 18);"></i>
+                <h3 style="margin-left: 85px;">Yash Rikki</h3><h4 style="margin-left: 110px;">Online</h4>
+                <h3 style="border: 2px black solid;width: 70px;text-align: center;margin-top: 30px;margin-left: 50px;">Call</h3>
+                <h3 style="border: 2px black solid;width: 70px;text-align: center;margin-top: -25px;margin-left: 140px;">Profile</h3>
+            </div>
+            <div class="boox5"></div>
+        </div>
+    </div>
+</body>
+</html>
